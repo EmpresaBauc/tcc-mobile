@@ -1,7 +1,0 @@
-{
-  "name": "tcc-mobile",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

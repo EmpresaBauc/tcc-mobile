@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./pisos/pisos.module').then( m => m.PisosPageModule)
   },
   {
+    path: 'pintura',
+    loadChildren: () => import('./pintura/pintura.module').then( m => m.PinturaPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

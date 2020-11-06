@@ -1,8 +1,9 @@
 <ion-app>
   <ion-content fullscreen class="ion-padding" scroll-y="true">
     <ion-row>
-      <ion-col size="5" offset="5">
-       <h1>Pisos</h1>
+      <ion-col style="text-align:center !important;">
+        <ion-button style="width:100px;" expand="block" routerLink="/menu" routerDirection="root">Voltar</ion-button>
+        <h1>Pisos</h1>
       </ion-col>
     </ion-row>
     <form (ngSubmit)="calculaPiso()">
@@ -11,7 +12,7 @@
           <ion-card>
             <ion-item>
               <ion-label position="stacked">Lado X</ion-label>
-              <ion-input id="LadoX" type="text" [(ngModel)]="LadoX" name="LadoX" id="LadoX"></ion-input>
+              <ion-input type="text" [(ngModel)]="ladoX" name="ladoX"></ion-input>
             </ion-item>
           </ion-card>
         </ion-col>
@@ -19,7 +20,7 @@
           <ion-card>
             <ion-item>
               <ion-label position="stacked">Lado Y</ion-label>
-              <ion-input id="LadoY" type="text" [(ngModel)]="LadoY" name="LadoY" id="LadoY"></ion-input>
+              <ion-input type="text" [(ngModel)]="ladoY" name="ladoY"></ion-input>
             </ion-item>
           </ion-card>
         </ion-col>
@@ -29,23 +30,21 @@
           <ion-card>
             <ion-item>
               <ion-label position="stacked">Tipos de Piso</ion-label>
-              <ion-select id="pisosTipo" type="select" [(ngModel)]="pisosTipo" name="pisosTipo" id="pisosTipo">
-                <ion-select-option value="pc-30x30">PISO CERÂMICO esmaltado-30x30-cm</ion-select-option>
-                <ion-select-option value="rpc-0x0">REJUNTAMENTO DE PISO cerâmico com argamassa préfabricada-0</ion-select-option>
-                <ion-select-option value="porc-40x40">PORCELANATO polido-40x40-cm</ion-select-option>
+              <ion-select  type="select" [(ngModel)]="pisosTipo" name="pisosTipo">
+                <ion-select-option value="pc-30x30" style="font: 15px Arial, sans-serif;">Cerâmica esmaltada-30x30-cm</ion-select-option>
+                <ion-select-option value="rpc-0x0" style="font: 15px Arial, sans-serif;">Rejuntamento de piso cerâmico com argamassa préfabricada-0</ion-select-option>
+                <ion-select-option value="porc-40x40" style="font: 15px Arial, sans-serif;">Porcelanato polido-40x40-cm</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-card>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col></ion-col>
-        <ion-col>
+      <ion-row>     
+        <ion-col style="text-align:center !important;">
             <ion-button type="submit" color="success">
               Calcular
             </ion-button>
         </ion-col>
-        <ion-col></ion-col>
       </ion-row>
     </form>
     <ion-row>
@@ -55,21 +54,21 @@
             <ion-card-subtitle>Insumos</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <ion-item>
+            <ion-item *ngIf="temPeca">
               <ion-label position="stacked">Quantidade de Peças:</ion-label>
-              <ion-label id="qtdPeca" position="stacked">0</ion-label>
+              <ion-label position="stacked">{{qtdPeca}}</ion-label>
             </ion-item>
             <ion-item>
               <ion-label position="stacked">Quantidade de Argamassa:</ion-label>
-              <ion-label id="qtdArgamassa" position="stacked">0</ion-label>
+              <ion-label position="stacked">{{qtdArgamassa}}</ion-label>
             </ion-item>
             <ion-item>
               <ion-label position="stacked">Tempo Pedreiro:</ion-label>
-              <ion-label id="tempoPedreiro" position="stacked">0</ion-label>
+              <ion-label position="stacked">{{tempoPedreiro}}</ion-label>
             </ion-item>
-            <ion-item>
+            <ion-item *ngIf="temAjudante">
               <ion-label position="stacked">Tempo Ajudante:</ion-label>
-              <ion-label id="tempoAjudante" position="stacked">0</ion-label>
+              <ion-label position="stacked">{{tempoAjudante}}</ion-label>
             </ion-item>
           </ion-card-content>
         </ion-card>

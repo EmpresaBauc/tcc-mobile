@@ -1,40 +1,47 @@
 <ion-app>
-  <ion-content fullscreen class="ion-padding" scroll-y="false">
+  <ion-content fullscreen class="ion-padding" scroll-y="true">
     <ion-row>
-      <ion-col size="4" offset="4">
-       <h1>Pintura</h1>
+      <ion-col style="text-align:center !important;">
+        <ion-button style="width:100px;" expand="block" routerLink="/menu" routerDirection="root">Voltar</ion-button>
+        <h1>Pintura</h1>
       </ion-col>
     </ion-row>
-    <form (ngSubmit)="buscarPlaca()">
+    <form (ngSubmit)="calculaPintura()">
       <ion-row>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Lado X</ion-label>
-            <ion-input id="LadoX" type="text" [(ngModel)]="LadoX" name="LadoX"></ion-input>
-          </ion-item>
+          <ion-card>
+            <ion-item>
+              <ion-label position="stacked">Lado X</ion-label>
+              <ion-input type="text" [(ngModel)]="ladoX" name="ladoX"></ion-input>
+            </ion-item>
+          </ion-card>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Lado Y</ion-label>
-            <ion-input id="LadoY" type="text" [(ngModel)]="LadoY" name="LadoY"></ion-input>
-          </ion-item>
+          <ion-card>
+            <ion-item>
+              <ion-label position="stacked">Lado Y</ion-label>
+              <ion-input type="text" [(ngModel)]="ladoY" name="ladoY"></ion-input>
+            </ion-item>
+          </ion-card>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Tipos de Tinta</ion-label>
-            <ion-select id="pisosTipo" type="select" [(ngModel)]="pisosTipo" name="pisosTipo">
-              <ion-select-option id="pc-30x30">PINTURA COM TINTA ACRÍLICA</ion-select-option>
-              <ion-select-option id="rpc-30x30">PINTURA COM TINTA LÁTEX ACRÍLICA em parede externa</ion-select-option>
-              <ion-select-option id="porc-40x40">PINTURA IMPERMEABILIZANTE sobre superfície de concreto</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <ion-card>
+            <ion-item>
+              <ion-label position="stacked">Tipos de Tinta</ion-label>
+              <ion-select type="select" [(ngModel)]="pisosTipo" name="pisosTipo">
+                <ion-select-option id="ta" style="font: 15px Arial, sans-serif;">Pintura com tinta acrílica</ion-select-option>
+                <ion-select-option id="tlapx" style="font: 15px Arial, sans-serif;">Pintura com tinta látex acrílica em parede externa</ion-select-option>
+                <ion-select-option id="pisc" style="font: 15px Arial, sans-serif;">Pintura impermeabilizante sobre superfície de concreto</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-card>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
-            <ion-button type="submit" color="success">
-              Calcular
-            </ion-button>
+        <ion-col style="text-align:center !important;">
+          <ion-button type="submit" color="success">
+            Calcular
+          </ion-button>
         </ion-col>
       </ion-row>
     </form>
@@ -61,6 +68,6 @@
         </ion-card>
       </ion-col>
     </ion-row>
-
+    <br>
   </ion-content>
 </ion-app>

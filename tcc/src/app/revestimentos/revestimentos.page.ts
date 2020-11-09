@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import $ from "jquery";
 
 @Component({
-  selector: 'app-pisos',
-  templateUrl: 'pisos.page.html',
-  styleUrls: ['pisos.page.scss'],
+  selector: 'app-revestimentos',
+  templateUrl: 'revestimentos.page.html',
+  styleUrls: ['revestimentos.page.scss'],
 })
-export class Pisos {
+export class Revestimentos {
 
   constructor() {}
 

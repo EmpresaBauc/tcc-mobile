@@ -11,13 +11,13 @@ export class Pintura {
 
   ladoX = 0;
   ladoY = 0;
-  pisosTipo = "";
-  qtdPeca = 0;
-  qtdArgamassa = "";
-  tempoPedreiro = "";
-  tempoAjudante = "";
-  temPeca = true;
-  temAjudante = true; 
+  pinturaTipos = "";
+  qtdLitros = "";
+  tempoPintor = "";
+  tempoAjudPintor = "";
+  temLitros = false;
+  temPintor = false;
+  temAjudante = false;
   
   float2int (value) {
     return value | 0;
@@ -49,101 +49,55 @@ export class Pintura {
     
     let ladoX = this.ladoX;
     let ladoY = this.ladoY;
-    let tipoPiso;
     let tamanhoMetrosQuadrados = 0;
-    let tamanhoMetrosQuadradosCalculo = 0
-    let tamanhoPiso = 0;
-    let quantidadePiso = 0;
-    let quantidadeArgamassa = 0;
-    let tempoPedreiro = "";
-    let tempoPedreiroDec = 0;
-    let tempoAjudanteDec = 0;
+    let quantidadeTinta = 0;
+    let tempoPintor = "";
     let tempoAjudante = "";
-
+  
     //calculando o tamanho em metros quadrados
     tamanhoMetrosQuadrados = ladoX *ladoY;
 
-    //obtendo o tipo de piso
-    tipoPiso = this.pisosTipo.split("-");
 
-    //filtrando qual tipo de calculo de acordo com o piso
-    if(tipoPiso[0]=="pc"){
-      //console.log("Tipo Piso: "+tipoPiso[1]);
-      tipoPiso = tipoPiso[1].split("x");
-      tamanhoPiso = tipoPiso[0] * tipoPiso[1];
-      tamanhoPiso = tamanhoPiso/10000;
-
-      //calculando quantidade de piso
-      tamanhoMetrosQuadradosCalculo = tamanhoMetrosQuadrados * 1.19;
-      if(tamanhoMetrosQuadradosCalculo>0){
-        quantidadePiso = tamanhoMetrosQuadradosCalculo/tamanhoPiso;
-      }
-
-      //calculando quantidade de argamasa
-      quantidadeArgamassa = tamanhoMetrosQuadrados * 4.40;
-
-      //calculando quantidade de tempos
-      tempoPedreiroDec = tamanhoMetrosQuadrados*0.44;
-      tempoPedreiro = this.conversaoTempo(tempoPedreiroDec);
-      tempoAjudanteDec = tamanhoMetrosQuadrados*0.22;
-      tempoAjudante = this.conversaoTempo(tempoAjudanteDec);
-
-      //console.log("Tamanho Piso: "+tamanhoPiso.toString().replace(".",",")+" m²");
-      //console.log("Tamanho Área (Considera Perda Ceramica): "+tamanhoMetrosQuadradosCalculo.toString().replace(".",",")+" m²");
-      this.qtdPeca = this.float2int(quantidadePiso);
-      this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
-      this.tempoPedreiro = tempoPedreiro;
-      this.tempoAjudante =  tempoAjudante;
-      this.temPeca = true;
-      this.temAjudante = true;
-
-    }else if(tipoPiso[0]=="rpc"){
-      console.log("Tipo Piso: "+tipoPiso[1]);
-      tipoPiso = tipoPiso[1].split("x");
-      
-      //calculando quantidade de argamassa
-      quantidadeArgamassa = tamanhoMetrosQuadrados*0.529;
+    if(this.pinturaTipos=="ta"){
+      quantidadeTinta = tamanhoMetrosQuadrados*0.30;
+      tempoPintor = this.conversaoTempo(tamanhoMetrosQuadrados*1.20);
+      tempoAjudante = this.conversaoTempo(tamanhoMetrosQuadrados*0.30);
 
       
-      //calculando quantidade de tempo
-      tempoPedreiroDec = tamanhoMetrosQuadrados*0.25;
-      tempoPedreiro = this.conversaoTempo(tempoPedreiroDec);
-      this.temPeca = false;
-      this.temAjudante = false;
-      this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
-      this.tempoPedreiro = tempoPedreiro;
+      this.qtdLitros = quantidadeTinta.toFixed(2).toString().replace(".",",")+" litros";
+      this.tempoPintor = tempoPintor;
+      this.tempoAjudPintor = tempoAjudante;
 
-    }else if(tipoPiso[0]=="porc"){
-      //console.log("Tipo Piso: "+tipoPiso[1]);
-      tipoPiso = tipoPiso[1].split("x");
-      tamanhoPiso = tipoPiso[0] * tipoPiso[1];
-      tamanhoPiso = tamanhoPiso/10000;
+      this.temLitros = true;
+      this.temPintor = true;
+      this.temAjudante = true;
+    }else if(this.pinturaTipos=="tlapx"){
+      quantidadeTinta = tamanhoMetrosQuadrados*0.17;
+      tempoPintor = this.conversaoTempo(tamanhoMetrosQuadrados*0.40);
+      tempoAjudante = this.conversaoTempo(tamanhoMetrosQuadrados*0.35);
 
-      //calculando quantidade de piso
-      tamanhoMetrosQuadradosCalculo = tamanhoMetrosQuadrados * 1.19;
-      if(tamanhoMetrosQuadradosCalculo>0){
-        quantidadePiso = tamanhoMetrosQuadradosCalculo/tamanhoPiso;
-      }
+      
+      this.qtdLitros = quantidadeTinta.toFixed(2).toString().replace(".",",")+" litros";
+      this.tempoPintor = tempoPintor;
+      this.tempoAjudPintor = tempoAjudante;
 
-      //calculando quantidade de argamasa
-      quantidadeArgamassa = tamanhoMetrosQuadrados * 9;
-
-
-      //calculando quantidade de tempos
-      tempoPedreiroDec = tamanhoMetrosQuadrados*0.44;
-      tempoPedreiro = this.conversaoTempo(tempoPedreiroDec);
-      tempoAjudanteDec = tamanhoMetrosQuadrados*0.22;
-      tempoAjudante = this.conversaoTempo(tempoAjudanteDec);
-
-      //console.log("Tamanho Piso: "+tamanhoPiso.toString().replace(".",",")+" m²");
-      //console.log("Tamanho Área (Considera Perda Ceramica): "+tamanhoMetrosQuadradosCalculo.toString().replace(".",",")+" m²");
-      this.qtdPeca = this.float2int(quantidadePiso);
-      this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
-      this.tempoPedreiro = tempoPedreiro;
-      this.tempoAjudante =  tempoAjudante;
-      this.temPeca = true;
+      this.temLitros = true;
+      this.temPintor = true;
       this.temAjudante = true;
 
+    }else if(this.pinturaTipos=="pisc"){
+      quantidadeTinta = tamanhoMetrosQuadrados*0.34;
+      tempoPintor = this.conversaoTempo(tamanhoMetrosQuadrados*0.44);
+      tempoAjudante = this.conversaoTempo(tamanhoMetrosQuadrados*0.22);
+
+      
+      this.qtdLitros = quantidadeTinta.toFixed(2).toString().replace(".",",")+" litros";
+      this.tempoPintor = tempoPintor;
+      this.tempoAjudPintor = tempoAjudante;
+
+      this.temLitros = true;
+      this.temPintor = true;
+      this.temAjudante = true;
     }
     
 

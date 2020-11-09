@@ -19,6 +19,22 @@ const routes: Routes = [
     loadChildren: () => import('./pintura/pintura.module').then( m => m.PinturaPageModule)
   },
   {
+    path: 'alvenaria',
+    loadChildren: () => import('./alvenaria/alvenaria.module').then( m => m.AlvenariaPageModule)
+  },
+  {
+    path: 'revestimentos',
+    loadChildren: () => import('./revestimentos/revestimentos.module').then( m => m.RevestimentosPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

@@ -1,0 +1,45 @@
+<ion-app>
+  <ion-content fullscreen class="ion-padding" scroll-y="false">
+    <ion-button style="width:100px;" expand="block" routerLink="/menu" routerDirection="root">Voltar</ion-button>
+    <h3 style="text-align: center;">Cadastro</h3>
+    <form (ngSubmit)="cadastrar()">
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-item>
+              <ion-label position="stacked">E-mail</ion-label>
+              <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-item>
+              <ion-label position="stacked">Senha</ion-label>
+              <ion-input type="text" [(ngModel)]="senha" name="senha"></ion-input>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-item>
+              <ion-label position="stacked">Confirmar Senha</ion-label>
+              <ion-input type="text" [(ngModel)]="senhaConfirmar" name="senhaConfirmar"></ion-input>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>     
+        <ion-col style="text-align:center !important;">
+            <ion-button type="submit" color="success">
+              Cadastrar
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-content>
+</ion-app>

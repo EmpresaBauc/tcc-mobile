@@ -1,7 +1,19 @@
 <ion-app>
   <ion-content fullscreen class="ion-padding" scroll-y="false">
-    <ion-button style="width:100px;" expand="block" routerLink="/home" routerDirection="root">Voltar</ion-button>
-    <h3 style="text-align: center;">Tipos de obra:</h3>
+    <ion-row>
+      <ion-col style="text-align: left;">
+        <ion-button style="width:100px;" expand="inline-block" routerLink="/home" routerDirection="root">Voltar</ion-button>
+      </ion-col>
+      <ion-col style="text-align: right;">
+        <ion-button style="width:100px;" expand="inline-block" routerLink="/login" routerDirection="root">Login</ion-button>
+        <ion-button style="width:100px;" expand="inline-block" routerLink="/cadastro" routerDirection="root">Cadastro</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3 style="text-align: center;">Tipos de obra:</h3>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col size="6" offset="3">
         <ion-button expand="block" routerLink="/pisos" routerDirection="root">Pisos</ion-button>
@@ -14,12 +26,12 @@
     </ion-row>
     <ion-row>
       <ion-col size="6" offset="3">
-        <ion-button expand="block" routerLink="/pisos" routerDirection="root">Alvenaria</ion-button>
+        <ion-button expand="block" routerLink="/alvenaria" routerDirection="root">Alvenaria</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="6" offset="3">
-        <ion-button expand="block" routerLink="/pisos" routerDirection="root">Revestimentos</ion-button>
+        <ion-button expand="block" routerLink="/revestimentos" routerDirection="root">Revestimentos</ion-button>
       </ion-col>
     </ion-row>
   </ion-content>

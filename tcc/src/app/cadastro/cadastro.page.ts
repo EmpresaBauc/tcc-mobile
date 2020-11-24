@@ -14,7 +14,9 @@ export class Cadastro {
   constructor(private apiService: ApiService) {}
 
   teste(){
-    console.log("teste");
+    this.apiService.getDogs().subscribe((data)=>{
+      console.log(data);
+    });
   }
 
 

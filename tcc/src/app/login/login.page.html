@@ -1,6 +1,8 @@
 <ion-app>
   <ion-content fullscreen class="ion-padding" scroll-y="false">
-    <ion-button style="width:100px;" expand="block" routerLink="/menu" routerDirection="root">Voltar</ion-button>
+    <ion-button expand="inline-block" routerLink="/menu" routerDirection="root">
+      <ion-icon name="arrow-undo-outline"></ion-icon>
+    </ion-button>
     <h3 style="text-align: center;">Login</h3>
     <form (ngSubmit)="autenticar()">
       <ion-row>

@@ -12,7 +12,7 @@ export class Revestimentos {
 
   ladoX = 0;
   ladoY = 0;
-  pisosTipo = "";
+  revestimentosTipo = "";
   qtdPeca = 0;
   qtdArgamassa = "";
   tempoPedreiro = "";
@@ -48,11 +48,11 @@ export class Revestimentos {
     return(tempo);
   }
 
-  calculaPiso(){
+  calculaRevestimentos(){
     
     let ladoX = this.ladoX;
     let ladoY = this.ladoY;
-    let tipoPiso;
+    let revestimentosTipo;
     let tamanhoMetrosQuadrados = 0;
     let tamanhoMetrosQuadradosCalculo = 0
     let tamanhoPiso = 0;
@@ -67,13 +67,13 @@ export class Revestimentos {
     tamanhoMetrosQuadrados = ladoX *ladoY;
 
     //obtendo o tipo de piso
-    tipoPiso = this.pisosTipo.split("-");
+    revestimentosTipo = this.revestimentosTipo.split("-");
 
     //filtrando qual tipo de calculo de acordo com o piso
-    if(tipoPiso[0]=="pc"){
-      //console.log("Tipo Piso: "+tipoPiso[1]);
-      tipoPiso = tipoPiso[1].split("x");
-      tamanhoPiso = tipoPiso[0] * tipoPiso[1];
+    if(revestimentosTipo[0]=="pc"){
+      //console.log("Tipo Piso: "+revestimentosTipo[1]);
+      revestimentosTipo = revestimentosTipo[1].split("x");
+      tamanhoPiso = revestimentosTipo[0] * revestimentosTipo[1];
       tamanhoPiso = tamanhoPiso/10000;
 
       //calculando quantidade de piso
@@ -102,9 +102,9 @@ export class Revestimentos {
       this.temPedreiro = true;
       this.temArgamassa = true;
 
-    }else if(tipoPiso[0]=="rpc"){
-      console.log("Tipo Piso: "+tipoPiso[1]);
-      tipoPiso = tipoPiso[1].split("x");
+    }else if(revestimentosTipo[0]=="rpc"){
+      console.log("Tipo Piso: "+revestimentosTipo[1]);
+      revestimentosTipo = revestimentosTipo[1].split("x");
       
       //calculando quantidade de argamassa
       quantidadeArgamassa = tamanhoMetrosQuadrados*0.529;
@@ -120,10 +120,10 @@ export class Revestimentos {
       this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
       this.tempoPedreiro = tempoPedreiro;
 
-    }else if(tipoPiso[0]=="porc"){
-      //console.log("Tipo Piso: "+tipoPiso[1]);
-      tipoPiso = tipoPiso[1].split("x");
-      tamanhoPiso = tipoPiso[0] * tipoPiso[1];
+    }else if(revestimentosTipo[0]=="porc"){
+      //console.log("Tipo Piso: "+revestimentosTipo[1]);
+      revestimentosTipo = revestimentosTipo[1].split("x");
+      tamanhoPiso = revestimentosTipo[0] * revestimentosTipo[1];
       tamanhoPiso = tamanhoPiso/10000;
 
       //calculando quantidade de piso

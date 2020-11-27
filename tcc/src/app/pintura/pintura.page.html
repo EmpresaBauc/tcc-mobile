@@ -1,9 +1,15 @@
 <ion-app>
   <ion-content fullscreen class="ion-padding" scroll-y="true">
     <ion-row>
+      <ion-col>
+        <ion-button expand="inline-block" routerLink="/menu" routerDirection="root">
+          <ion-icon name="arrow-undo-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col style="text-align:center !important;">
-        <ion-button style="width:100px;" expand="block" routerLink="/menu" routerDirection="root">Voltar</ion-button>
-        <h1>Pintura</h1>
+        <h1>Pisos</h1>
       </ion-col>
     </ion-row>
     <form (ngSubmit)="calculaPintura()">

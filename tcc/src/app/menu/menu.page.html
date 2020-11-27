@@ -1,12 +1,14 @@
 <ion-app>
   <ion-content fullscreen class="ion-padding" scroll-y="false">
-    <ion-row>
+    <ion-row style="margin-bottom:50px;">
       <ion-col style="text-align: left;">
-        <ion-button style="width:100px;" expand="inline-block" routerLink="/home" routerDirection="root">Voltar</ion-button>
+        <ion-button expand="inline-block" routerLink="/home" routerDirection="root">
+          <ion-icon name="arrow-undo-outline"></ion-icon>
+        </ion-button>
       </ion-col>
       <ion-col style="text-align: right;">
-        <ion-button style="width:100px;" expand="inline-block" routerLink="/login" routerDirection="root">Login</ion-button>
-        <ion-button style="width:100px;" expand="inline-block" routerLink="/cadastro" routerDirection="root">Cadastro</ion-button>
+        <ion-button  expand="inline-block" routerLink="/login" routerDirection="root">Login</ion-button>
+        <ion-button  expand="inline-block" routerLink="/cadastro" routerDirection="root">Cadastro</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>

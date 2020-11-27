@@ -1,8 +1,14 @@
 <ion-app>
   <ion-content fullscreen class="ion-padding" scroll-y="true">
     <ion-row>
+      <ion-col>
+        <ion-button expand="inline-block" routerLink="/menu" routerDirection="root">
+          <ion-icon name="arrow-undo-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col style="text-align:center !important;">
-        <ion-button style="width:100px;" expand="block" routerLink="/menu" routerDirection="root">Voltar</ion-button>
         <h1>Revestimentos</h1>
       </ion-col>
     </ion-row>
@@ -30,10 +36,10 @@
           <ion-card>
             <ion-item>
               <ion-label position="stacked">Tipos de Piso</ion-label>
-              <ion-select  type="select" [(ngModel)]="pisosTipo" name="pisosTipo">
-                <ion-select-option value="pc-30x30" style="font: 15px Arial, sans-serif;">Cerâmica esmaltada-30x30-cm</ion-select-option>
-                <ion-select-option value="rpc-0x0" style="font: 15px Arial, sans-serif;">Rejuntamento de piso cerâmico com argamassa préfabricada-0</ion-select-option>
-                <ion-select-option value="porc-40x40" style="font: 15px Arial, sans-serif;">Porcelanato polido-40x40-cm</ion-select-option>
+              <ion-select  type="select" [(ngModel)]="revestimentosTipo" name="pisosTipo">
+                <ion-select-option value="pp-30x30" style="font: 15px Arial, sans-serif;">Pastilha de Porcelana-30x30-cm</ion-select-option>
+                <ion-select-option value="ppc-30x30" style="font: 15px Arial, sans-serif;">Pastilha de Porcelana Superfície Curva-30x30-cm</ion-select-option>
+                <ion-select-option value="mv-30x30" style="font: 15px Arial, sans-serif;">Mosaico Vidroso-30x30-cm</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-card>

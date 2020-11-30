@@ -12,11 +12,29 @@ export class Cadastro {
   // constructor() {}
 
   constructor(private apiService: ApiService) {}
+  nome = "";
+  email = "";
+  senha = "";
+  senhaConfirmar = "";
+  
 
-  teste(){
-    this.apiService.getDogs().subscribe((data)=>{
-      console.log(data);
-    });
+  cadastrarUsuario(){
+    let nomeValue = this.nome;
+    let emailValue = this.email;
+    let senhaValue = this.senha;
+    let confirmarsenhaValue = this.senhaConfirmar;
+
+    if(senhaValue == confirmarsenhaValue){
+      this.apiService.createUsuario(nomeValue, emailValue, senhaValue).subscribe((data)=>{
+        console.log(data);
+      });
+    }else{
+      alert("Senha não confere!");
+      this.senha = "";
+      this.senhaConfirmar = "";
+    }
+
+    
   }
 
 

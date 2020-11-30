@@ -12,7 +12,7 @@
         <h1>Alvenaria</h1>
       </ion-col>
     </ion-row>
-    <form (ngSubmit)="calculaPiso()">
+    <form (ngSubmit)="calculaAlvenaria()">
       <ion-row>
         <ion-col>
           <ion-card>
@@ -35,11 +35,9 @@
         <ion-col>
           <ion-card>
             <ion-item>
-              <ion-label position="stacked">Tipos de Piso</ion-label>
-              <ion-select  type="select" [(ngModel)]="pisosTipo" name="pisosTipo">
-                <ion-select-option value="pc-30x30" style="font: 15px Arial, sans-serif;">Cerâmica esmaltada-30x30-cm</ion-select-option>
-                <ion-select-option value="rpc-0x0" style="font: 15px Arial, sans-serif;">Rejuntamento de piso cerâmico com argamassa préfabricada-0</ion-select-option>
-                <ion-select-option value="porc-40x40" style="font: 15px Arial, sans-serif;">Porcelanato polido-40x40-cm</ion-select-option>
+              <ion-label position="stacked">Tipos de Alvenaria</ion-label>
+              <ion-select  type="select" [(ngModel)]="alvenariaTipo" name="alvenariaTipo">
+                <ion-select-option value="al-14x19x39" style="font: 15px Arial, sans-serif;">Alvenaria Estrutural Blocos Cerâmico-14x19x39-cm</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-card>
@@ -60,13 +58,17 @@
             <ion-card-subtitle>Insumos</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <ion-item *ngIf="temPeca">
-              <ion-label position="stacked">Quantidade de Peças:</ion-label>
-              <ion-label position="stacked">{{qtdPeca}}</ion-label>
+            <ion-item *ngIf="temTijolos">
+              <ion-label position="stacked">Quantidade de Tijolos:</ion-label>
+              <ion-label position="stacked">{{qtdTijolos}}</ion-label>
             </ion-item>
-            <ion-item *ngIf="temArgamassa">
-              <ion-label position="stacked">Quantidade de Argamassa:</ion-label>
-              <ion-label position="stacked">{{qtdArgamassa}}</ion-label>
+            <ion-item *ngIf="temAreia">
+              <ion-label position="stacked">Quantidade de Areia:</ion-label>
+              <ion-label position="stacked">{{qtdAreia}}</ion-label>
+            </ion-item>
+            <ion-item *ngIf="temCimento">
+              <ion-label position="stacked">Quantidade de Cimento:</ion-label>
+              <ion-label position="stacked">{{qtdCimento}}</ion-label>
             </ion-item>
             <ion-item *ngIf="temPedreiro">
               <ion-label position="stacked">Tempo Pedreiro:</ion-label>

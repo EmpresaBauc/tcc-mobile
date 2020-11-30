@@ -23,7 +23,7 @@ export class Revestimentos {
   temAjudante = false; 
   
   float2int (value) {
-    return value | 0;
+    return Math.round(value) | 0;
   }
 
   conversaoTempo(quantidade){
@@ -55,8 +55,8 @@ export class Revestimentos {
     let revestimentosTipo;
     let tamanhoMetrosQuadrados = 0;
     let tamanhoMetrosQuadradosCalculo = 0
-    let tamanhoPiso = 0;
-    let quantidadePiso = 0;
+    let tamanhoRevestimento = 0;
+    let quantidadeRevestimentos = 0;
     let quantidadeArgamassa = 0;
     let tempoPedreiro = "";
     let tempoPedreiroDec = 0;
@@ -70,30 +70,30 @@ export class Revestimentos {
     revestimentosTipo = this.revestimentosTipo.split("-");
 
     //filtrando qual tipo de calculo de acordo com o piso
-    if(revestimentosTipo[0]=="pc"){
+    if(revestimentosTipo[0]=="pp"){
       //console.log("Tipo Piso: "+revestimentosTipo[1]);
       revestimentosTipo = revestimentosTipo[1].split("x");
-      tamanhoPiso = revestimentosTipo[0] * revestimentosTipo[1];
-      tamanhoPiso = tamanhoPiso/10000;
+      tamanhoRevestimento = revestimentosTipo[0] * revestimentosTipo[1];
+      tamanhoRevestimento = tamanhoRevestimento/10000;
 
       //calculando quantidade de piso
-      tamanhoMetrosQuadradosCalculo = tamanhoMetrosQuadrados * 1.19;
+      tamanhoMetrosQuadradosCalculo = tamanhoMetrosQuadrados * 1.05;
       if(tamanhoMetrosQuadradosCalculo>0){
-        quantidadePiso = tamanhoMetrosQuadradosCalculo/tamanhoPiso;
+        quantidadeRevestimentos = tamanhoMetrosQuadradosCalculo/tamanhoRevestimento;
       }
 
       //calculando quantidade de argamasa
-      quantidadeArgamassa = tamanhoMetrosQuadrados * 4.40;
+      quantidadeArgamassa = tamanhoMetrosQuadrados * 6.50;
 
       //calculando quantidade de tempos
-      tempoPedreiroDec = tamanhoMetrosQuadrados*0.44;
+      tempoPedreiroDec = tamanhoMetrosQuadrados*0.60;
       tempoPedreiro = this.conversaoTempo(tempoPedreiroDec);
-      tempoAjudanteDec = tamanhoMetrosQuadrados*0.22;
+      tempoAjudanteDec = tamanhoMetrosQuadrados*0.70;
       tempoAjudante = this.conversaoTempo(tempoAjudanteDec);
 
-      //console.log("Tamanho Piso: "+tamanhoPiso.toString().replace(".",",")+" m²");
+      //console.log("Tamanho Piso: "+tamanhoRevestimento.toString().replace(".",",")+" m²");
       //console.log("Tamanho Área (Considera Perda Ceramica): "+tamanhoMetrosQuadradosCalculo.toString().replace(".",",")+" m²");
-      this.qtdPeca = this.float2int(quantidadePiso);
+      this.qtdPeca = this.float2int(quantidadeRevestimentos);
       this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
       this.tempoPedreiro = tempoPedreiro;
       this.tempoAjudante =  tempoAjudante;
@@ -102,49 +102,63 @@ export class Revestimentos {
       this.temPedreiro = true;
       this.temArgamassa = true;
 
-    }else if(revestimentosTipo[0]=="rpc"){
-      console.log("Tipo Piso: "+revestimentosTipo[1]);
-      revestimentosTipo = revestimentosTipo[1].split("x");
-      
-      //calculando quantidade de argamassa
-      quantidadeArgamassa = tamanhoMetrosQuadrados*0.529;
-
-      
-      //calculando quantidade de tempo
-      tempoPedreiroDec = tamanhoMetrosQuadrados*0.25;
-      tempoPedreiro = this.conversaoTempo(tempoPedreiroDec);
-      this.temPeca = false;
-      this.temAjudante = false;
-      this.temPedreiro = true;
-      this.temArgamassa = true;
-      this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
-      this.tempoPedreiro = tempoPedreiro;
-
-    }else if(revestimentosTipo[0]=="porc"){
+    }else if(revestimentosTipo[0]=="ppc"){
       //console.log("Tipo Piso: "+revestimentosTipo[1]);
       revestimentosTipo = revestimentosTipo[1].split("x");
-      tamanhoPiso = revestimentosTipo[0] * revestimentosTipo[1];
-      tamanhoPiso = tamanhoPiso/10000;
+      tamanhoRevestimento = revestimentosTipo[0] * revestimentosTipo[1];
+      tamanhoRevestimento = tamanhoRevestimento/10000;
 
       //calculando quantidade de piso
-      tamanhoMetrosQuadradosCalculo = tamanhoMetrosQuadrados * 1.19;
+      tamanhoMetrosQuadradosCalculo = tamanhoMetrosQuadrados * 1.05;
       if(tamanhoMetrosQuadradosCalculo>0){
-        quantidadePiso = tamanhoMetrosQuadradosCalculo/tamanhoPiso;
+        quantidadeRevestimentos = tamanhoMetrosQuadradosCalculo/tamanhoRevestimento;
       }
 
       //calculando quantidade de argamasa
-      quantidadeArgamassa = tamanhoMetrosQuadrados * 9;
+      quantidadeArgamassa = tamanhoMetrosQuadrados * 6.50;
+
+      //calculando quantidade de tempos
+      tempoPedreiroDec = tamanhoMetrosQuadrados*0.90;
+      tempoPedreiro = this.conversaoTempo(tempoPedreiroDec);
+      tempoAjudanteDec = tamanhoMetrosQuadrados*1.00;
+      tempoAjudante = this.conversaoTempo(tempoAjudanteDec);
+
+      //console.log("Tamanho Piso: "+tamanhoRevestimento.toString().replace(".",",")+" m²");
+      //console.log("Tamanho Área (Considera Perda Ceramica): "+tamanhoMetrosQuadradosCalculo.toString().replace(".",",")+" m²");
+      this.qtdPeca = this.float2int(quantidadeRevestimentos);
+      this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
+      this.tempoPedreiro = tempoPedreiro;
+      this.tempoAjudante =  tempoAjudante;
+      this.temPeca = true;
+      this.temAjudante = true;
+      this.temPedreiro = true;
+      this.temArgamassa = true;
+
+    }else if(revestimentosTipo[0]=="mv"){
+      //console.log("Tipo Piso: "+revestimentosTipo[1]);
+      revestimentosTipo = revestimentosTipo[1].split("x");
+      tamanhoRevestimento = revestimentosTipo[0] * revestimentosTipo[1];
+      tamanhoRevestimento = tamanhoRevestimento/10000;
+
+      //calculando quantidade de piso
+      tamanhoMetrosQuadradosCalculo = tamanhoMetrosQuadrados * 1.10;
+      if(tamanhoMetrosQuadradosCalculo>0){
+        quantidadeRevestimentos = tamanhoMetrosQuadradosCalculo/tamanhoRevestimento;
+      }
+
+      //calculando quantidade de argamasa
+      quantidadeArgamassa = tamanhoMetrosQuadrados * 5.60;
 
 
       //calculando quantidade de tempos
-      tempoPedreiroDec = tamanhoMetrosQuadrados*0.44;
+      tempoPedreiroDec = tamanhoMetrosQuadrados*1.50;
       tempoPedreiro = this.conversaoTempo(tempoPedreiroDec);
-      tempoAjudanteDec = tamanhoMetrosQuadrados*0.22;
+      tempoAjudanteDec = tamanhoMetrosQuadrados*1.50;
       tempoAjudante = this.conversaoTempo(tempoAjudanteDec);
 
-      //console.log("Tamanho Piso: "+tamanhoPiso.toString().replace(".",",")+" m²");
+      //console.log("Tamanho Piso: "+tamanhoRevestimento.toString().replace(".",",")+" m²");
       //console.log("Tamanho Área (Considera Perda Ceramica): "+tamanhoMetrosQuadradosCalculo.toString().replace(".",",")+" m²");
-      this.qtdPeca = this.float2int(quantidadePiso);
+      this.qtdPeca = this.float2int(quantidadeRevestimentos);
       this.qtdArgamassa = quantidadeArgamassa.toFixed(2).toString().replace(".",",")+" Kg";
       this.tempoPedreiro = tempoPedreiro;
       this.tempoAjudante =  tempoAjudante;

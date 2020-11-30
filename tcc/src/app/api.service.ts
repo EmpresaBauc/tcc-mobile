@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  URL_API = 'http://api-laravel.test/api';
+  URL_API = 'http://blog.test/api';
   
   constructor(private httpClient: HttpClient ) { }
   getDogs(){

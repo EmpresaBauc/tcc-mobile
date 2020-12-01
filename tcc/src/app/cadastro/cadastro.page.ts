@@ -26,17 +26,18 @@ export class Cadastro {
 
     if(senhaValue == confirmarsenhaValue){
       this.apiService.createUsuario(nomeValue, emailValue, senhaValue).subscribe((data)=>{
-        console.log(data);
+        this.nome = "";
+        this.email = "";
+        this.senha = "";
+        this.senhaConfirmar = "";
+        alert("Cadastrado com sucesso!");
       });
     }else{
       alert("Senha não confere!");
       this.senha = "";
       this.senhaConfirmar = "";
     }
-
-    
   }
-
 
   // buscarDogs(){
 

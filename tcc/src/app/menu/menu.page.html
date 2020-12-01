@@ -6,9 +6,13 @@
           <ion-icon name="arrow-undo-outline"></ion-icon>
         </ion-button>
       </ion-col>
-      <ion-col style="text-align: right;">
+      <ion-col *ngIf="verificaDeslogado()" style="text-align: right;">
         <ion-button  expand="inline-block" routerLink="/login" routerDirection="root">Login</ion-button>
         <ion-button  expand="inline-block" routerLink="/cadastro" routerDirection="root">Cadastro</ion-button>
+      </ion-col>
+      <ion-col *ngIf="verificaLogado()">
+        <ion-button  expand="inline-block" routerLink="/login" routerDirection="root">Logout</ion-button>
+        <ion-label id="usuario">Bem vindo, {{nomeUsuario}}</ion-label>
       </ion-col>
     </ion-row>
     <ion-row>
